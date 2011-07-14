@@ -4,5 +4,5 @@ development:
   # If you don't already have a SID and token
   # go to http://twilio.com and sign up for a demo
   # account.
-  TWILIO_SID: 'AC10984a77f9963a1cdb24ccb400112124'
-  TWILIO_TKN: '151a5f0578c3b22adc7229727648a04b'
+  TWILIO_SID: your_sid
+  TWILIO_TKN: your_token

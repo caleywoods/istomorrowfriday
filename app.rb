@@ -11,7 +11,7 @@ post '/' do
   if (Date.today.wday + 1 == 5)
     builder :greet_friday
   else
-    builder :greet_normal
+    builder :greet_regular
   end
 end
 

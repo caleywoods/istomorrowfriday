@@ -2,6 +2,7 @@ require 'sinatra'
 require 'date'
 require 'twilio'
 require 'haml'
+require 'yaml'
 
 CALLER_ID = 4155992671
 
@@ -14,7 +15,13 @@ get '/friday' do
   Twilio.connect(config['development']['TWILIO_SID'],config['development']['TWILIO_TKN'])
   if (Date.today.wday + 1 == 5)
     Twilio::Sms.message(CALLER_ID, 6603539430, "Yes!!!")
+    #<Response>
+      #<SMS>Yes!!!</SMS>
+    #</Response>
   else
     Twilio::Sms.message(CALLER_ID, 6603549430, "No :(")
+    #<Response>
+      #<SMS>No :(</SMS>
+    #</Response>
   end
 end

@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %link{:rel => "stylesheet", :href =>'style.css', :type => "text/css"}
+    %title Is Tomorrow Friday?
+  %body#body
+    #wrapper.container_12.clearfix
+      %h1.grid_4#logo Is Tomorrow Friday?
+      .hr
+      .clear
+
+      #content
+        - if (Date.today.wday + 1 == 5)
+          %p Tomorrow is friday!
+        - else
+          %p Tomorrow is not friday!

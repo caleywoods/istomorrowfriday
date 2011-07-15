@@ -6,22 +6,26 @@ require 'builder'
 
 CALLER_ID = 4155992671
 
-get '/' do
-  "Text 'is tomorrow friday?' to 415-599-2671!"
+#config = YAML.load_file('./config.yml')
+#Twilio.connect(config['development']['TWILIO_SID'],config['development']['TWILIO_TKN'])
+
+helpers do
+  def sms(message)
+  Twilio::Sms.message(CALLER_ID, params[:Caller], message)
+  end
 end
 
-get '/friday' do
-  config = YAML.load_file('./config.yml')
-  Twilio.connect(config['development']['TWILIO_SID'],config['development']['TWILIO_TKN'])
+post '/' do
+  builder :hello
+end
+
+post '/friday' do
+
   if (Date.today.wday + 1 == 5)
-    Twilio::Sms.message(CALLER_ID, 6603539430, "Yes!!!")
-    #<Response>
-      #<SMS>Yes!!!</SMS>
-    #</Response>
+    #sms("Yes!!!")
+    builder :yes
   else
-    Twilio::Sms.message(CALLER_ID, 6603549430, "No :(")
-    #<Response>
-      #<SMS>No :(</SMS>
-    #</Response>
+    #sms("No :(")
+    builder :no
   end
 end

@@ -1,4 +1,4 @@
 xml.instruct!
 xml.Response do
-  <SMS>Yes!!!</SMS>
+  xml.Sms("Yes!!!")
 end
